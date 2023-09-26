@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Personalizada Vue.js</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        #app {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Calculadora Personalizada Vue.js</h1>
+        
+        <input type="text" v-model="expression" @input="sanitizeInput">
+        
+        <div>
+            <button @click="appendToExpression('1')">1</button>
+            <button @click="appendToExpression('2')">2</button>
+            <button @click="appendToExpression('3')">3</button>
+            <button @click="appendToExpression('+')">+</button>
+        </div>
+        
+        <div>
+            <button @click="appendToExpression('4')">4</button>
+            <button @click="appendToExpression('5')">5</button>
+            <button @click="appendToExpression('6')">6</button>
+            <button @click="appendToExpression('-')">-</button>
+        </div>
+        
+        <div>
+            <button @click="appendToExpression('7')">7</button>
+            <button @click="appendToExpression('8')">8</button>
+            <button @click="appendToExpression('9')">9</button>
+            <button @click="appendToExpression('*')">*</button>
+        </div>
+        
+        <div>
+            <button @click="appendToExpression('0')">0</button>
+            <button @click="appendToExpression('.')">.</button>
+            <button @click="calculateResult()">=</button>
+            <button @click="appendToExpression('/')">/</button>
+        </div>
+        
+        <button @click="clearExpression()">Limpar</button>
+        
+        <div>
+            <p>Resultado: {{ result }}</p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
